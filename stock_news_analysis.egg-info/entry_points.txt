@@ -1,0 +1,2 @@
+[console_scripts]
+build-index = scripts.build_index:main
