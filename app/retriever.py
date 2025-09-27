@@ -14,7 +14,7 @@ class HybridRetriever:
         if not query.strip():
             return []
         tfidf_q = self.vectorizer.transform([query])
-        tfidf_scores = (tfidf_q @ self.tfidf.T).A1
+        tfidf_scores = (tfidf_q @ self.tfidf.T).toarray().flatten()
         bm25_scores = np.array(self.bm25.get_scores(query.split()))
         # z-normalize safely
         def z(s):
